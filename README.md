@@ -35,7 +35,7 @@ To run this project locally:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/Morse-Code-Translator-and-Generator.git
+    git clone https://github.com/pola-k/Morse-Code-Translator-and-Generator.git
     cd Morse-Code-Translator-and-Generator
     ```
 
@@ -66,26 +66,6 @@ To run this project locally:
 
 5. **Access the application**:
     Open your browser and go to `http://127.0.0.1:8000/` to use the Morse Code Generator and Translator.
-
-## Project Structure
-
-```bash
-.
-├── morse_code
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── views.py              # Django view logic for generating and translating Morse code
-├── morse_code.html            # HTML template for the web interface
-├── static
-│   └── css
-│       └── styles.css         # CSS file for styling the web interface
-├── manage.py
-├── README.md
-└── requirements.txt           # Python dependencies
-```
 
 ## Usage
 
