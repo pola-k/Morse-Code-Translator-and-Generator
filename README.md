@@ -34,10 +34,6 @@ The application supports the following characters for both generating and transl
 To run this project locally:
 
 1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/pola-k/Morse-Code-Translator-and-Generator.git
-    cd Morse-Code-Translator-and-Generator
-    ```
 
 2. **Install the required dependencies**:
     Make sure you have Python and Django installed. You can install Django using pip:
