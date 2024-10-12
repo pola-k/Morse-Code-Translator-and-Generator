@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Morse Code Generator and Translator</title>
+<style>
+body
+{
+   background-color: black;
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
+   color: white;
+}
+.box1
+{
+    background-color: white;
+    width: 100%;
+    color: black;
+    padding: 5px 0;
+    font-size: 25px;
+    text-align: center;
+}
+ul
+{
+    padding-left: 0;
+    margin-left: 0;
+    list-style-position: inside;
+}
+li
+{
+    margin-left: 0;
+}
+.instructions
+{
+    width:100%;
+    overflow:auto;
+}
+.instructions div
+{
+    width:50%;
+    float:left;
+    padding-top: 0px;
+}
+form
+{
+    max-width: 90%;
+}
+label
+{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+textarea
+{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 10px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.input-container, .output-container
+{
+    margin-top: 20px; /* Space above the input section */
+    width: 100%; /* Ensure it uses full width */
+}
+.option-container
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 50px;
+    width: 100%;
+}
+.option-label
+{
+padding: 10px 20px;
+cursor: pointer;
+transition: background-color 0.3s, color 0.3s;
+display: flex;
+align-items: center;
+gap: 10px;
+margin-right: 20px;
+}
+.option-label input
+{
+    display: none;
+}
+.option-label input:checked + span
+{
+    background-color: white;
+    color: black;
+}
+.option-label span
+{
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+button
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+</style>
+</head>
+<body>
+    <div class="box1">
+        <p>Morse Code Generator and Translator</p>
+    </div>
+    <div class="instructions">
+        <div>
+            <h3>Translating to Morse Code</h3>
+            <p>Ensure that you have entered only the supported characters</p>
+            <h4>Supported Characters</h4>
+            <ul>
+                <li>Upper-case English Alphabets</li>
+                <li>Lower-case English Alphabets</li>
+                <li>Digits</li>
+                <li>!</li>
+                <li>-</li>
+                <li>.</li>
+                <li>,</li>
+                <li>?</li>
+                <li>'</li>
+                <li>"</li>
+                <li>:</li>
+                <li>_</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Translating From Morse Code</h3>
+            <p>Ensure that you follow the correct format of Morse code for accurate results</p>
+            <ul>
+                <li>After every letter/character there should be a single space</li>
+                <li>After every word there should be 3 spaces</li>
+            </ul>
+        </div>
+    </div>
+    <div class="option-container">
+        <form method="post" action="{% url 'morse_code' %}">
+    {% csrf_token %}
+    <label class="option-label">
+        <input type="radio" name="mode" value="1" checked>
+        <span>Generate</span>
+    </label>
+    <label class="option-label">
+        <input type="radio" name="mode" value="2">
+        <span>Translate</span>
+    </label>
+    <div class="input-container">
+        <label for="user-input">Input:</label>
+        <textarea id="user-input" name="user_input"></textarea>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+    </div>
+
+    <div class="output-container">
+        <form>
+            <label for="result-output">Output:</label>
+            <textarea id="result-output" name="result_output" readonly>{{ result }}</textarea>
+        </form>
+    </div>
+</body>
+</html>
